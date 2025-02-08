@@ -17,5 +17,9 @@
         packages.cpu = import ./impl.nix { inherit pkgs; variant = "CPU"; };
         packages.cuda = import ./impl.nix { inherit pkgs; variant = "CUDA"; };
         packages.rocm = import ./impl.nix { inherit pkgs; variant = "ROCM"; };
+        devShells.default = throw "You need to specify which output you want: CPU, ROCm, or CUDA.";
+        devShells.cpu = import ./impl.nix { inherit pkgs; variant = "CPU"; };
+        devShells.cuda = import ./impl.nix { inherit pkgs; variant = "CUDA"; };
+        devShells.rocm = import ./impl.nix { inherit pkgs; variant = "ROCM"; };
     });
 }
